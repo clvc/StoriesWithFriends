@@ -8,12 +8,31 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
+import com.facebook.AppEventsLogger;
+import com.facebook.Session;
+
+
 
 public class MainActivity extends ActionBarActivity {
 
     private ProgressBar progressBar;
     private Button button;
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Logs 'install' and 'app activate' App Events.
+        AppEventsLogger.activateApp(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        // Logs 'app deactivate' App Event.
+        AppEventsLogger.deactivateApp(this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

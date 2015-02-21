@@ -12,6 +12,10 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.facebook.AppEventsLogger;
+import com.facebook.Session;
+
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -23,6 +27,21 @@ public class MainActivity extends ActionBarActivity {
 
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Logs 'install' and 'app activate' App Events.
+        //AppEventsLogger.activateApp(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        // Logs 'app deactivate' App Event.
+        //AppEventsLogger.deactivateApp(this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

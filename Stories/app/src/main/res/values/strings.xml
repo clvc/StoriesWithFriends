@@ -1,10 +1,6 @@
 <resources>
     <string name="app_name">Stories</string>
-    <string name="facebook_app_id">784215088327383</string>
+    <string name="facebook_app_id"></string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_login">LoginActivity</string>
-
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

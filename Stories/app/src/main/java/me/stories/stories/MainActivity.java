@@ -1,18 +1,27 @@
 package me.stories.stories;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
 
     private ProgressBar progressBar;
     private Button button;
+    private TextView storyText;
+    private EditText newText;
+    private String prevNewString;
+
+
 
 
     @Override
@@ -23,24 +32,57 @@ public class MainActivity extends ActionBarActivity {
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         button = (Button) findViewById(R.id.submitButton);
+        storyText = (TextView) findViewById(R.id.storyText);
+        newText = (EditText) findViewById(R.id.newText);
 
+        newText.addTextChangedListener(new TextWatcher() {
+
+            boolean endText = false;
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                if(s.toString().contains(" ")){
+                    endText = true;
+                }
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(endText){
+                    newText.setText(prevNewString);
+                    endText = false;
+                }else{
+                    prevNewString = s.toString();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 submitText();
             }
-
-
         });
 
 
     }
 
+
+
     private void submitText() {
+        String currentText = storyText.getText().toString();
+        String toAdd = newText.getText().toString();
 
+        toAdd = toAdd.split(" ")[0];
+        currentText += " " + toAdd;
 
-
+        //TODO add sweet animation
+        storyText.setText(currentText);
     }
 
     @Override

@@ -42,18 +42,15 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 if(s.toString().contains(" ")){
-                    endText = true;
+                    newText.setText(prevNewString);
+                }else{
+                    prevNewString = s.toString();
                 }
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(endText){
-                    newText.setText(prevNewString);
-                    endText = false;
-                }else{
-                    prevNewString = s.toString();
-                }
+               
             }
 
             @Override

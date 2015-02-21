@@ -2,8 +2,6 @@ package me.stories.stories;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -51,30 +49,6 @@ public class MainActivity extends ActionBarActivity {
         storyText = (TextView) findViewById(R.id.storyText);
         newText = (EditText) findViewById(R.id.newText);
 
-        newText.addTextChangedListener(new TextWatcher() {
-
-            boolean endText = false;
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                if(s.toString().contains(" ")){
-                    newText.setText(prevNewString);
-                }else{
-                    prevNewString = s.toString();
-                }
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-               
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,7 +63,7 @@ public class MainActivity extends ActionBarActivity {
 
     private void submitText() {
         String currentText = storyText.getText().toString();
-        String toAdd = newText.getText().toString();
+        String toAdd = newText.getText().toString().split(" ")[0];
 
         toAdd = toAdd.split(" ")[0];
         currentText += " " + toAdd;

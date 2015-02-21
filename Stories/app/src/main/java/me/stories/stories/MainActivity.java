@@ -23,7 +23,7 @@ public class MainActivity extends ActionBarActivity {
         super.onResume();
 
         // Logs 'install' and 'app activate' App Events.
-        AppEventsLogger.activateApp(this);
+        //AppEventsLogger.activateApp(this);
     }
 
     @Override
@@ -31,15 +31,14 @@ public class MainActivity extends ActionBarActivity {
         super.onPause();
 
         // Logs 'app deactivate' App Event.
-        AppEventsLogger.deactivateApp(this);
+        //AppEventsLogger.deactivateApp(this);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
-
-
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         button = (Button) findViewById(R.id.submitButton);
 

@@ -5,8 +5,15 @@
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
+<<<<<<< HEAD
 >>>>>>> 26fb2ae0408ff0305f88222da6dc3668a8aebe67
+=======
+<<<<<<< HEAD
+>>>>>>> d681bb1a4ed75af06c75711691900e5c6b911e88
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+=======
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
+>>>>>>> ec578fa4d30258529f83070d4f26fd3cb7cee91c
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
 </project>

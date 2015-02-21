@@ -12,9 +12,6 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.facebook.AppEventsLogger;
-import com.facebook.Session;
-
 
 
 public class MainActivity extends ActionBarActivity {
